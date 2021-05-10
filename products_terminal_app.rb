@@ -1,4 +1,5 @@
 require "http"
+# require "tty"
 
 system "clear"
 

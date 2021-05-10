@@ -1,19 +1,12 @@
 class ProductsController < ApplicationController
-  def keyboard
-    keyboard = Product.find_by(name: "Keyboard")
-    render json: keyboard
-  end
-  def mouse
-    mouse = Product.find_by(name: "Mouse")
-    render json: mouse
-  end
-  def mousepad
-    mousepad = Product.find_by(name: "Mousepad")
-    render json: mousepad
+  def index
+    products = Product.all
+    render json: products.as_json
   end
 
-  def all_products
-    all_products = Product.all
-    render json: all_products
+  def show
+    product_id = params[:id]
+    product = Product.find_by(id: product_id) # ID SHOULD BE DYNAMIC
+    render json: product.as_json
   end
 end
