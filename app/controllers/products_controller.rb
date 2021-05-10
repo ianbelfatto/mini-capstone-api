@@ -5,8 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    product_id = params[:id]
-    product = Product.find_by(id: product_id) # ID SHOULD BE DYNAMIC
+    product = Product.find_by(id: params[:id])
     render json: product.as_json
   end
 end
