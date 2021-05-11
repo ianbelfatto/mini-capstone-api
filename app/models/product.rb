@@ -9,7 +9,7 @@ class Product < ApplicationRecord
 
   def tax
     tax = price * 0.09 # could simply write "price * 0.09"
-      return tax
+      return tax.round(2)
   end
 
   def total # could simply write "price + tax" 
