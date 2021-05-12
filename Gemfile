@@ -41,3 +41,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Serializer
 
 gem 'active_model_serializers', '~> 0.10.0'
+
+# Seed-Dump
+
+gem 'seed_dump'
