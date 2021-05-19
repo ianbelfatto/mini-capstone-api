@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+
+  belongs_to :supplier
+
   # VALIDATIONS --------------------------------------------
 
   validates :name, presence: true, uniqueness: true
