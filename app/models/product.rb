@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
 
   belongs_to :supplier
+  has_many :images
 
   # VALIDATIONS --------------------------------------------
 
@@ -8,7 +9,7 @@ class Product < ApplicationRecord
   validates :price, numericality: {greater_than: 0 }
   validates :description, length: { maximum: 500 }
   validates :inventory, numericality: { greater_than_or_equal_to: 0 }
-  validates_format_of :image_url, :with => %r{\.(png|jpg|jpeg|gif)$}i, :message => "must have a valid file type", :multiline => true
+  # validates_format_of :image_url, :with => %r{\.(png|jpg|jpeg|gif)$}i, :message => "must have a valid file type", :multiline => true
 
   # VALIDATIONS --------------------------------------------
 

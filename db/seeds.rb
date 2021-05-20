@@ -1,7 +1,28 @@
-Supplier.create!([
-  {name: "Razer", email: "general@razer.com", phone_number: "555-123-4567"},
-  {name: "ASUS", email: "general@asus.com", phone_number: "404-098-7654"}
-])
+# Image.create!([
+#   {url: "https://i.ytimg.com/vi/eANOF7TbDew/maxresdefault.jpg", product_id: 1}
+# ])
+
+# Image.create!([
+#   {url: "https://static.toiimg.com/photo/70993927.cms", product_id: 7}
+# ])
+
+# Image.create!{[
+#   {url: "https://assets2.razerzone.com/images/og-image/BWlite-OG.jpg", product_id: 1}
+# ]}
+
+# Image.create!{[
+#   {url: "https://assets.razerzone.com/eeimages/products/27414/razer-goliathus-mobile-stealth-ed-ogimage.jpg"}
+# ]}
+
+# Image.create!{[
+#   {url: "https://i.rtings.com/assets/products/9BKzvwWk/asus-tuf-vg27aq/design-medium.jpg"}
+# ]}
+
+
+# Supplier.create!([
+#   {name: "Razer", email: "general@razer.com", phone_number: "555-123-4567"},
+#   {name: "ASUS", email: "general@asus.com", phone_number: "404-098-7654"}
+# ])
 
 
 
