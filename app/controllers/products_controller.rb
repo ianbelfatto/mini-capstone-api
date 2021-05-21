@@ -22,10 +22,10 @@ class ProductsController < ApplicationController
       products = products.where("price < 100")
     end
 
-    if current_user
-      render json: {user: current_user, all_products: products}
-    end
-    # render json: products
+    # if current_user
+    #   render json: {user: current_user, all_products: products}
+    # end
+    render json: products
   end
 
   def create
