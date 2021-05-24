@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_admin, except: [:index, :show]
   def index
     products = Product.all
-  # SQL CONDITIONS
+  # SQL CONDITIONS --------------------------------------------
     if params[:search]
       products = products.where("name iLIKE ?", "%#{params[:search]}%")
     end
@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
     if params[:discount] == "true"
       products = products.where("price < 100")
     end
+  # SQL CONDITIONS --------------------------------------------
     render json: products
   end
 
