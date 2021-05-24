@@ -1,4 +1,28 @@
 # Image.create!([
+#   {url: "https://assets2.razerzone.com/images/pnx.assets/c823b05abd23067ac3f1caf514e0982f/goliathus-mobile-stealth-compact-portability-mobile.jpg", product_id: 2}
+# ])
+
+# Image.create!([
+#   {url: "https://assets3.razerzone.com/3NlY-MrP2Ald1NHvqg1P6mM7C0Q=/1500x1000/https%3A%2F%2Fhybrismediaprod.blob.core.windows.net%2Fsys-master-phoenix-images-container%2Fh95%2Fh55%2F9081439584286%2FRZ02-01820500-R3M1-2.jpg", product_id: 2}
+# ])
+
+# Image.create!([
+#   {url: "https://static.techspot.com/articles-info/1972/images/S-15.jpg", product_id: 5}
+# ])
+
+# Image.create!([
+#   {url: "https://cdn11.bigcommerce.com/s-jl6azsq4yb/images/stencil/1280x1280/products/526/1215/ballsml__61717.1598931659.jpg?c=2", product_id: }
+# ])
+
+# Image.create!([
+#   {url: "https://ae01.alicdn.com/kf/Hfda804e4c6e54a9faa6d277d0032924b1.jpg", product_id: 6}
+# ])
+
+# Image.create!([
+#   {url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-zpk8wTr7TdE3jazfq0ZzyryIQ7x02Ny_HQ&usqp=CAU", product_id: 6}
+# ])
+
+# Image.create!([
 #   {url: "https://i.ytimg.com/vi/eANOF7TbDew/maxresdefault.jpg", product_id: 1}
 # ])
 
