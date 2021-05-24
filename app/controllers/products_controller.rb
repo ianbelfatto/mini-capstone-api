@@ -3,24 +3,29 @@ class ProductsController < ApplicationController
   def index
     products = Product.all
   # SQL CONDITIONS --------------------------------------------
-    if params[:search]
-      products = products.where("name iLIKE ?", "%#{params[:search]}%")
-    end
+    # if params[:search]
+    #   products = products.where("name iLIKE ?", "%#{params[:search]}%")
+    # end
 
-    if params[:sort] == "price"
-      products = products.order(:price)
-    end
+    # if params[:sort] == "price"
+    #   products = products.order(:price)
+    # end
 
-    if params[:sort] == "price" && params[:sort_order] == "desc"
-      products = products.order(price: :desc)
-    end
+    # if params[:sort] == "price" && params[:sort_order] == "desc"
+    #   products = products.order(price: :desc)
+    # end
 
-    if params[:sort] ==
-      products = products.order(:id)
-    end
+    # if params[:sort] ==
+    #   products = products.order(:id)
+    # end
 
-    if params[:discount] == "true"
-      products = products.where("price < 100")
+    # if params[:discount] == "true"
+    #   products = products.where("price < 100")
+    # end
+
+    if params[:category]
+      category = Category.find_by("name iLIKE ?", params[:category])
+      products = category.products
     end
   # SQL CONDITIONS --------------------------------------------
     render json: products
