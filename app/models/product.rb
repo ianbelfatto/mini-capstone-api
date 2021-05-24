@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   belongs_to :supplier
   has_many :images
   has_many :orders
+  has_many :category_products
 
   # VALIDATIONS --------------------------------------------
 
@@ -25,7 +26,7 @@ class Product < ApplicationRecord
 
   def tax
     tax = price * 0.09 # could simply write "price * 0.09"
-      return tax.round(2)
+    return tax.round(2)
   end
 
   def total # could simply write "price + tax" 

@@ -1,3 +1,16 @@
+categories = Category.create!([
+  {
+    name: "Technology"
+  },
+  {
+    name: "Peripheral"
+  },
+  {
+    name: "Exercise"
+  }
+])
+
+
 # Image.create!([
 #   {url: "https://assets2.razerzone.com/images/pnx.assets/c823b05abd23067ac3f1caf514e0982f/goliathus-mobile-stealth-compact-portability-mobile.jpg", product_id: 2}
 # ])
