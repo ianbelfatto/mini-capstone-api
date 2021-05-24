@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
   def index
     products = Product.all
-    # SQL CONDITIONS
+  # SQL CONDITIONS
     if params[:search]
       products = products.where("name iLIKE ?", "%#{params[:search]}%")
     end
@@ -21,10 +22,6 @@ class ProductsController < ApplicationController
     if params[:discount] == "true"
       products = products.where("price < 100")
     end
-
-    # if current_user
-    #   render json: {user: current_user, all_products: products}
-    # end
     render json: products
   end
 
@@ -32,7 +29,6 @@ class ProductsController < ApplicationController
     product = Product.new(
       name: params[:name],
       price: params[:price],
-      image_url: params[:image_url],
       description: params[:description],
       inventory: params[:inventory]
     )
@@ -54,7 +50,6 @@ class ProductsController < ApplicationController
     product = Product.find_by(id: params[:id])
     product.name = params[:name] || product.name
     product.price = params[:price] || product.price
-    product.image_url = params[:image_url] || product.image_url
     product.description = params[:description] || product.description
     product.inventory = params[:inventory] || product.inventory
     if product.save

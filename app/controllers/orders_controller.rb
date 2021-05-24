@@ -1,18 +1,18 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user
   def create
     order = Order.new(
       user_id: current_user.id,
       product_id: params[:product_id],
       quantity: params[:quantity],
-      # subtotal: params[:subtotal],
-      # tax: params[:tax],
-      # total: params[:total]
     )
+    
     # SUBTOTAL CALCULATION ------------------------------------
     order.subtotal = order.quantity * order.product.price
     order.tax = order.subtotal * 0.09
     order.total = order.tax + order.subtotal
     # SUBTOTAL CALCULATION ------------------------------------
+
     if order.save
       render json: order
     else
