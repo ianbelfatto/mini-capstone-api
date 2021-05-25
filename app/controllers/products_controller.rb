@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
       products = category.products
     end
   # SQL CONDITIONS --------------------------------------------
-    render json: products
+    render json: products #.order(:id) or whatever other param you want to sort by
   end
 
   def create
