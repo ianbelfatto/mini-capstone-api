@@ -1,27 +1,29 @@
 class OrdersController < ApplicationController
+
   before_action :authenticate_user
+
   def create
-    carted_products = CartedProduct.where("status LIKE ?", "carted")
-    if carted_products
-      order = Order.new(
-        user_id: current_user.id,
-      )
-      
-      # SUBTOTAL CALCULATION ------------------------------------
-      # new order subtotal looks at all items with status "carted", loop would iterate through each item with status "carted" and grab product id and product price - multiply together for subtotal
-      order.subtotal = carted_product.product_id.price * carted_product.quantity
+    carted_products = current_user.carted_products.where(status: "carted")
+    calculated_subtotal = 0
 
-      order.subtotal = order.quantity * order.product.price
-      order.tax = order.subtotal * 0.09
-      order.total = order.tax + order.subtotal
+    carted_products.each do |carted_product|
+      calculated_subtotal += carted_product.quantity * carted_product.product.price
+    end
+    calculated_tax = calculated_subtotal * 0.09
+    calculated_total = calculated_subtotal + calculated_tax
 
-      # SUBTOTAL CALCULATION ------------------------------------
-
-      if order.save
-        render json: order
-      else
-        render json: {errors: order.errors.full_messages}, status: 422
-      end
+    order = Order.new(
+      user_id: current_user.id,
+      subtotal: calculated_subtotal,
+      tax: calculated_tax,
+      total: calculated_total
+    )
+    if order.save
+      carted_products.update_all(status: "purchased", order_id: order.id)
+      render json: order
+    else
+      render json: {errors: order.errors.full_messages}, status: 422
+    end
   end
 
   def show
@@ -39,7 +41,7 @@ class OrdersController < ApplicationController
   def index
     if current_user
       orders = current_user.orders
-      render json: orders
+      render json: orders, include: 'carted_products.product'
     else render json: [], status: :unauthorized
     end
   end
